@@ -6,7 +6,7 @@ import numpy as np
 import os
 
 
-def printDir():
+def printDir():  # print the directory
     print("Current Dataset:")
     directory = os.getcwd()
     directory += f"\\test"
@@ -20,7 +20,7 @@ def printDir():
     return listdir[choice-1]
 
 
-def sklearnDataset():
+def sklearnDataset():  # use sklearn dataset
     print("Sklearn Dataset:")
     print("1. Iris")
     print("2. wine")
@@ -39,13 +39,13 @@ def sklearnDataset():
     return data
 
 
-def selectedDataset():
+def selectedDataset():  # use dataset in test folder
     data = printDir()
     data = f"test\\{data}"
     return data
 
 
-def selectDataset():
+def selectDataset():  # choose either sklearn or manually
     data = None
     check = False
     print("1. Sklearn Dataset")
@@ -63,7 +63,7 @@ def selectDataset():
     return data, check
 
 
-def prompt():
+def prompt():  # promt for interactive user
     print("Hi, Welcome to Gare's convex hull visualizer!")
     print("Do you want to try the Sklearn dataset or Select dataset manually?")
     data, check = selectDataset()
@@ -74,7 +74,7 @@ def prompt():
         return data, check
 
 
-def processSklearn(data):
+def processSklearn(data):  # processing the sklearn dataset
     colors = ['b', 'r', 'g', 'c', 'm', 'y', 'k']
     df = pd.DataFrame(data.data, columns=data.feature_names)
     df['Target'] = pd.DataFrame(data.target)
@@ -116,7 +116,7 @@ def processSklearn(data):
         exit(0)
 
 
-def processLocal(data):
+def processLocal(data):  # process the local dataset
     colors = ['b', 'r', 'g', 'c', 'm', 'y', 'k']
     df = pd.read_csv(data)
     cols = df.columns
